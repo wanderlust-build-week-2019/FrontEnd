@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
  import dummyData from '../dummyData'
-import './SearchBar.css'
-import Post from './Post'
+ import Place from './Place';
 
  
 
@@ -51,7 +50,7 @@ export default class SearchBar extends Component {
 
         <ul>
           {filteredPlaces.map ((e)=> {
-            return<Post place ={e.place}
+            return<Place place ={e.place}
             img={e.thumbnailUrl}
                         country ={e.country}
                         price = {e.price}

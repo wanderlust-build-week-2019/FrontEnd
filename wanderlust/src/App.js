@@ -18,7 +18,7 @@ function App() {
 
       <h1 className ='headline'>WANDERLUST</h1>
       <img src = 'http://media4.picsearch.com/is?l5ZhLDv7SHBjZi5gBCok_Uiv1CZihXh5LiWcKrGXG_0&height=255'></img>
-        <Login/>
+        {/* <Login/> */}
       {/* <SearchBar/> */}
       {/* <PostsPage/> */}
          <nav>
