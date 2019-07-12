@@ -8,6 +8,6 @@ This project was first brought to fruition via first building a Figma design. Yo
 Our TDD document - https://docs.google.com/document/d/1kWLAJLZ566lzELfJ4Yj1AMOspLT5UT6ZWCCKsmdSacg/edit?usp=sharing
 
 Our MVP site breakdown for project - https://docs.google.com/document/d/1sOKYP4gTj9U9HhmrgJbVmO2tT1yBkRUFKUDCyUgM7j0/edit?usp=sharing
-
+The site design was completed The first wednesday 7-11-2019 8:20
 
 As this project is added to, this Readme file will also become updated to reflect any and all important information. 
