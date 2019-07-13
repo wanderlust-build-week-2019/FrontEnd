@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class RegCreation extends Component {
   constructor() {
     super();
-    state = {};
+    this.state = {};
   }
   render() {
     return (
