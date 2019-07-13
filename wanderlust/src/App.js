@@ -1,12 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Home from '../src/componenets/Home';
+
+import Home from '../src/components/Home';
+import TGCreation from '../src/components/TG-creation';
+import RegCreation from '../src/components/Reg-creation';
+import TourPage from '../src/components/TourPage';
+
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/guide-creation" component={TGCreation} />
+        <Route exact path="/Experiencer-creation" component={RegCreation} />
+        <Route exact path="/TourPage" component={TourPage} />
+      </Switch>
     </div>
   );
 }

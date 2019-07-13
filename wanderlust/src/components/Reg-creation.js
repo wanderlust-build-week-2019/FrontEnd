@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class TourPage extends Component {
+class RegCreation extends Component {
   constructor() {
     super();
-    state = {};
+    this.state = {};
   }
   render() {
     return (
@@ -14,4 +14,4 @@ class TourPage extends Component {
   }
 }
 
-export default TourPage;
+export default RegCreation;
