@@ -52,7 +52,7 @@ class Creation extends Component {
                   <h2 className="heading">Tour Guide</h2>
                 </div>
                 <Form>
-                  <FormGroup row>
+                  {/* <FormGroup row>
                     <Label for="name" sm={4}>
                       Name
                     </Label>
@@ -64,7 +64,7 @@ class Creation extends Component {
                         placeholder="Enter your name"
                       />
                     </Col>
-                  </FormGroup>
+                  </FormGroup> */}
                   <FormGroup row>
                     <Label for="email" sm={4}>
                       Email
@@ -91,7 +91,7 @@ class Creation extends Component {
                       />
                     </Col>
                   </FormGroup>
-                  <FormGroup row>
+                  {/* <FormGroup row>
                     <Label for="number" sm={4}>
                       Number
                     </Label>
@@ -117,7 +117,7 @@ class Creation extends Component {
                         placeholder="Enter your city"
                       />
                     </Col>
-                  </FormGroup>
+                  </FormGroup> */}
                   <Button>Submit</Button>
                 </Form>
               </div>
@@ -128,7 +128,7 @@ class Creation extends Component {
                   <h2 className="heading">Experiencer</h2>
                 </div>
                 <Form>
-                  <FormGroup row>
+                  {/* <FormGroup row>
                     <Label for="name" sm={4}>
                       Name
                     </Label>
@@ -140,7 +140,7 @@ class Creation extends Component {
                         placeholder="Enter your name"
                       />
                     </Col>
-                  </FormGroup>
+                  </FormGroup> */}
                   <FormGroup row>
                     <Label for="email" sm={4}>
                       Email
@@ -167,7 +167,7 @@ class Creation extends Component {
                       />
                     </Col>
                   </FormGroup>
-                  <FormGroup row>
+                  {/* <FormGroup row>
                     <Label for="number" sm={4}>
                       Number
                     </Label>
@@ -179,7 +179,7 @@ class Creation extends Component {
                         placeholder="540-867-5309"
                       />
                     </Col>
-                  </FormGroup>
+                  </FormGroup> */}
                   <Button>Submit</Button>
                 </Form>
               </div>
