@@ -15,19 +15,14 @@ import {
 // https://codeburst.io/react-image-upload-with-kittens-cc96430eaece
 // https://github.com/funador/react-image-upload
 
-class TourPage extends Component {
+class AddTourPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       file: null
     };
-    this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(event) {
-    this.setState({
-      file: URL.createObjectURL(event.target.files[0])
-    });
-  }
+
   render() {
     return (
       <div>
@@ -42,24 +37,24 @@ class TourPage extends Component {
         </header>
         <div className="mainSection">
           <section className="mainContent">
-            <section className="uploadSection">
+            {/* <section className="uploadSection">
               <div className="clickToUpload photo">
-                {/* This will be the section that contains the selected or clicked on photo */}
+                 This will be the section that contains the selected or clicked on photo 
               </div>
               <div className="uploadedPhotos">
                 <div className="uploadedPhoto">
-                  {/* This is where the uploaded your photos will be available to be clicked on to be seen in a larger size
+                  * This is where the uploaded your photos will be available to be clicked on to be seen in a larger size
                   
-                  Stretch goal: Make it so the photos auto rotate*/}
+                  Stretch goal: Make it so the photos auto rotate
                 </div>
               </div>
-            </section>
+            </section> */}
             <section className="tripDetails">
               <div className="left">
                 <div className="genText">Trip Details</div>
                 <div className="enterDetails">
                   <Form>
-                    <FormGroup row>
+                    {/* <FormGroup row>
                       <Label for="tourName" sm={4}>
                         Tour Name
                       </Label>
@@ -71,7 +66,7 @@ class TourPage extends Component {
                           placeholder="Enter the name of the tour."
                         />
                       </Col>
-                    </FormGroup>
+                    </FormGroup> */}
                     <FormGroup row>
                       <Label for="duration" sm={4}>
                         Duration
@@ -85,7 +80,7 @@ class TourPage extends Component {
                         />
                       </Col>
                     </FormGroup>
-                    <FormGroup row>
+                    {/* <FormGroup row>
                       <Label for="tourCost" sm={4}>
                         Tour Price
                       </Label>
@@ -97,7 +92,7 @@ class TourPage extends Component {
                           placeholder="Enter the price of the tour."
                         />
                       </Col>
-                    </FormGroup>
+                    </FormGroup> */}
                     <FormGroup row>
                       <Label for="cityName" sm={4}>
                         Location Of Tour
@@ -127,7 +122,7 @@ class TourPage extends Component {
                         </Input>
                       </Col>
                     </FormGroup>
-                    <FormGroup row>
+                    {/* <FormGroup row>
                       <Label for="tourDescription" sm={4}>
                         Tour Description
                       </Label>
@@ -139,7 +134,7 @@ class TourPage extends Component {
                           placeholder="Please enter a brief description of the tour"
                         />
                       </Col>
-                    </FormGroup>
+                    </FormGroup> */}
                     <Button color="primary" size="lg" block>
                       Book this Tour!
                     </Button>
@@ -174,4 +169,4 @@ class TourPage extends Component {
   }
 }
 
-export default TourPage;
+export default AddTourPage;
