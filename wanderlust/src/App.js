@@ -24,4 +24,6 @@ function App() {
   );
 }
 
+const ConditionalView = Authenticate(SearchBar)(Login);
+
 export default App;
