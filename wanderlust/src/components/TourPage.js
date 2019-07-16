@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  Col,
+  Row,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText
+} from 'reactstrap';
 
 // Refer to this page to develop the upload portion
 // https://codeburst.io/react-image-upload-with-kittens-cc96430eaece
@@ -34,11 +44,13 @@ class TourPage extends Component {
           <section className="mainContent">
             <section className="uploadSection">
               <div className="clickToUpload photo">
-                {/* This will be the upload section */}
+                {/* This will be the section that contains the selected or clicked on photo */}
               </div>
               <div className="uploadedPhotos">
                 <div className="uploadedPhoto">
-                  {/* This is where the photos that have been uploaded will be displayed */}
+                  {/* This is where the uploaded your photos will be available to be clicked on to be seen in a larger size
+                  
+                  Stretch goal: Make it so the photos auto rotate*/}
                 </div>
               </div>
             </section>
@@ -46,7 +58,92 @@ class TourPage extends Component {
               <div className="left">
                 <div className="genText">Trip Details</div>
                 <div className="enterDetails">
-                  {/* Create a form here to take in the details of the trips that the Tour Guide will provide */}
+                  <Form>
+                    <FormGroup row>
+                      <Label for="tourName" sm={4}>
+                        Tour Name
+                      </Label>
+                      <Col sm={8}>
+                        <Input
+                          type="text"
+                          name="tourName"
+                          id="tourName"
+                          placeholder="Enter the name of the tour."
+                        />
+                      </Col>
+                    </FormGroup>
+                    <FormGroup row>
+                      <Label for="duration" sm={4}>
+                        Duration
+                      </Label>
+                      <Col sm={8}>
+                        <Input
+                          type="text"
+                          name="duration"
+                          id="duration"
+                          placeholder="How long is the tour?"
+                        />
+                      </Col>
+                    </FormGroup>
+                    <FormGroup row>
+                      <Label for="tourCost" sm={4}>
+                        Tour Price
+                      </Label>
+                      <Col sm={8}>
+                        <Input
+                          type="number"
+                          name="tourCost"
+                          id="tourCost"
+                          placeholder="Enter the price of the tour."
+                        />
+                      </Col>
+                    </FormGroup>
+                    <FormGroup row>
+                      <Label for="cityName" sm={4}>
+                        Location Of Tour
+                      </Label>
+                      <Col sm={8}>
+                        <Input
+                          type="text"
+                          name="cityName"
+                          id="cityName"
+                          placeholder="What city(ies) will the tour be in?"
+                        />
+                      </Col>
+                    </FormGroup>
+                    <FormGroup row>
+                      <Label for="tourType" sm={4}>
+                        Tour Type
+                      </Label>
+                      <Col sm={8}>
+                        <Input
+                          type="select"
+                          name="tourType"
+                          id="tourType"
+                          defaultValue="Please make a selection..."
+                        >
+                          <option value="Professional">Professional</option>
+                          <option value="Private">Private</option>
+                        </Input>
+                      </Col>
+                    </FormGroup>
+                    <FormGroup row>
+                      <Label for="tourDescription" sm={4}>
+                        Tour Description
+                      </Label>
+                      <Col sm={8}>
+                        <Input
+                          type="textarea"
+                          name="tourDescription"
+                          id="tourDescription"
+                          placeholder="Please enter a brief description of the tour"
+                        />
+                      </Col>
+                    </FormGroup>
+                    <Button color="primary" size="lg" block>
+                      Book this Tour!
+                    </Button>
+                  </Form>
                 </div>
               </div>
             </section>
