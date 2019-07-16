@@ -1,7 +1,7 @@
 import React from 'react'
 import dummyData from '../dummyData';
 import SearchBar from './SearchBar'
-import PostsContainer from './PostsContainer'
+import PostsContainer from './TourContainer'
 
 class PostsPage extends React.Component {
 	constructor() {

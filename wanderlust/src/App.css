@@ -1,7 +1,24 @@
 .App {
   text-align: center;
 }
+.App h3{
+  color:white;
+  margin:10px;
+  font-size:40px;
+}
 
+ .nav{
+   display:flex;
+   background-color: navy;
+   color:white;
+   justify-content: center;
+ }
+ .nav a {
+   color:white;
+   margin:20px;
+   font-size: 20px;
+ 
+ }
 .destinations{
   color: white;
   font-size:60px;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
  import dummyData from '../dummyData'
  import Place from './Place';
+ import axios from 'axios';
 
  
 
@@ -9,9 +10,8 @@ export default class SearchBar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      posts: [],
-      filteredPosts: [],
-      search: ''
+     tours: [],
+       search: ''
     }
   }
 
@@ -24,12 +24,34 @@ export default class SearchBar extends Component {
   onChange = e => {
     this.setState({search: e.target.value})
   }
+
+  componentDidMount(){
+    axios.get('https://wanderlust-api.herokuapp.com/api/tours')
+    .then(res=> {
+      let tours = res.data
+      this.setState(()=> ({tours: res.data}))
+
+      console.log("TOURS:", tours)
+
+    })
+    .then(res => {
+      console.log("NEWSTATE!!",this.state)
+     })
+    .catch(err => {
+      console.log('Server Error', err)
+    })
+    
+      
+
+
+  }
  
 // THIS ONE!!
   render() {
-     let filteredPlaces =  dummyData.filter(
+    
+     let filteredPlaces =  this.state.tours.filter(
       (e)=> {
-        return e.place.indexOf(this.state.search)!== -1;
+        return e.location.indexOf(this.state.search)!== -1;
       }
     );
     return (
@@ -46,15 +68,14 @@ export default class SearchBar extends Component {
                     onChange = {this.onChange}
                   />
         </div>
-           
-
+ 
         <ul>
           {filteredPlaces.map ((e)=> {
-            return<Place place ={e.place}
-            img={e.thumbnailUrl}
-                        country ={e.country}
-                        price = {e.price}
-            key = {e.img}/>
+            return<Place location ={e.location}
+                         type ={e.type}
+                         max_duration ={e.max_duration}
+                        user_id= {e.user_id}
+            key = {e.id}/>
              
           })}
         </ul>
