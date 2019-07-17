@@ -38,6 +38,7 @@ class TourContainer extends React.Component {
 						<div>
 
 							<h1>{e.location}</h1>
+							<h1>{e.max_duration}</h1>
 							<h1>{e.type}</h1>
 						</div>
 

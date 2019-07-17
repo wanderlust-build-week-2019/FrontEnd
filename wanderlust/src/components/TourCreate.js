@@ -2,7 +2,9 @@ import React from 'react';
 import '../TourCreate.css';
 import axios from 'axios';
 import '../dummyData';
+import TourContainer from './TourContainer';
 import dummyData from '../dummyData';
+import axiosAuth from '../reducers/axiosAuth'
 class TourCreate extends React.Component{
     constructor(props){
         super(props)
@@ -10,16 +12,16 @@ class TourCreate extends React.Component{
              max_duration:'',
             location:'',
           type:'',
-            description:'',
-        }]};
+          }]};
     }
       
 
 
 
     
-    addNew = newTour => {
-         axios
+    addNew =   newTour => {
+         
+         axiosAuth()
         .post('https://wanderlust-api.herokuapp.com/api/tours', newTour)
             .then(res => {
               const tour = res.data
@@ -128,7 +130,7 @@ class TourCreate extends React.Component{
                           
                                      
 </div>
-<div>
+{/* <div>
         <ul>
     {this.state.tours.map (e => {
         return (
@@ -145,22 +147,13 @@ class TourCreate extends React.Component{
 </ul>
             
             
-            </div>   
+            </div>    */}
+            <TourContainer/>
 
                       </div>
               <form onSubmit ={this.addTour}>
-              <input
-                   onChange = {this.handleInputChange}
-                   placeholder = 'trip details'
-                   value = {this.state.tripDetails}
-                   name='tripDetails'
-                   />
-                  <input
-                   onChange = {this.handleInputChange}
-                   placeholder = 'tour name'
-                   value = {this.state.tourName}
-                   name='tourName'
-                   />
+              
+                  
                     <input
                    onChange = {this.handleInputChange}
                    placeholder = 'duration'
@@ -179,13 +172,7 @@ class TourCreate extends React.Component{
                    vale = {this.state.type}
                    name='tourType'
                    />
-                    <input
-                    className ='description'
-                   onChange = {this.handleInputChange}
-                   placeholder = 'description'
-                   vale = {this.state.description}
-                   name='description'
-                   />
+                    
                    <button type ='submit'>Add a Tour!</button>
 
 

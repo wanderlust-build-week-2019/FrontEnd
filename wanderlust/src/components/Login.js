@@ -6,17 +6,20 @@ class Login extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {
+        this.state =   {credentials:{
             username: '',
-            password: ' '
+            password: ' '}
         };
     }
  
   changeHandle = e => {
-      this.setState({[e.target.name]: e.target.value })
+      this.setState({
+        credentials: {
+        [e.target.name]: e.target.value }
+        
+})
 
-
-  }
+  };
  
   LoginSubmit = e => {
     const password = this.state.password;

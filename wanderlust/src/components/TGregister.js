@@ -1,25 +1,39 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 
 
 class TGregister extends React.Component{
     constructor(props){
         super(props);
         this.state ={
-            firstName: '',
-            lastName: '',
-            email:'',
-            password: ''
+            username: '',
+            password:''
         };
     }
     
-    changeHandle =e =>({[e.target.name]: e.target.value})
+     addGuide = user =>{  
+    axios
+    .post('https://wanderlust-api.herokuapp.com/auth/guide/register', user)
+    .then( res => {  localStorage.setItem('token',res.data.token)
 
-    regSubmit = e => {
-        const firstName = this.state.firstName;
-        const password = this.state.password;
-        const email = this.state.email;
-        console.log(password)
     }
+
+
+    )
+    .catch (err =>{
+        console.log(err)
+    
+
+    })}
+    changeHandle =e =>  this.setState({ [e.target.name]: e.target.value });
+
+
+    // regSubmit = e => {
+    //     const firstName = this.state.firstName;
+    //     const password = this.state.password;
+    //     const email = this.state.email;
+    //     console.log(password)
+    // }
 
     render(){
 
@@ -34,30 +48,20 @@ class TGregister extends React.Component{
             type= 'submit'>
             <input
                type ='text'
-               name ='firstName'
+               name ='username'
                placeholder = 'First-Name'
-               value={this.state.firstName}
+               value={this.state.username}
                onChange={this.changeHandle}/> 
-               <input
-               type ='text'
-               name ='lastName'
-               placeholder = 'Last-Name'
-               value={this.state.lastName}
-               onChange={this.changeHandle}/> 
-               <input
-               type ='text'
-               name ='email'
-               placeholder = 'email'
-               value={this.state.email}
-               onChange={this.changeHandle}/> 
-               <input
+                <input
                type ='password'
                name ='password'
                placeholder = 'password'
                value={this.state.password}
                onChange={this.changeHandle}/> 
+               
+               
 
-               <button className ='regSubmit'>SUBMIT</button>
+               <button className ='regSubmit' onClick ={this.addGuide(this.state)}>SUBMIT</button>
 
 
             </form>
