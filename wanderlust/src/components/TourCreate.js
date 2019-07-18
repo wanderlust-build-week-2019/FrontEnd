@@ -8,26 +8,26 @@ import axiosAuth from '../reducers/axiosAuth'
 class TourCreate extends React.Component{
     constructor(props){
         super(props)
-        this.state ={tours:[  {
+        this.state =  {
              max_duration:'',
             location:'',
           type:'',
-          }]};
+          };
     }
       
 
 
 
     
-    addNew =   newTour => {
+    addNew =   e => {
          
          axiosAuth()
-        .post('https://wanderlust-api.herokuapp.com/api/tours', newTour)
+        .post('https://wanderlust-api.herokuapp.com/api/tours', e)
             .then(res => {
               const tour = res.data
               this.setState({ ...this.state.tours , tour })
               console.log("!!!!",tour)
-              console.log(' NEW:',newTour)
+              console.log(' NEW:',tour)
 
             })
             .catch(err => console.error(err))
@@ -54,23 +54,23 @@ class TourCreate extends React.Component{
       };
 
 
-      componentDidMount(){
-		axios.get('https://wanderlust-api.herokuapp.com/api/tours')
-		.then(res=> {
-		  let tours = res.data
-		  this.setState(()=> ({tours: res.data}))
+  //     componentDidMount(){
+	// 	axios.get('https://wanderlust-api.herokuapp.com/api/tours')
+	// 	.then(res=> {
+	// 	  let tours = res.data
+	// 	  this.setState(()=> ({tours: res.data}))
 	
-		  console.log("TOURS:", tours)
+	// 	  console.log("TOURS:", tours)
 	
-		})
-		.then(res => {
-		  console.log("NEWSTATE!!",this.state)
-		 })
-		.catch(err => {
-		  console.log('Server Error', err)
-		})
+	// 	})
+	// 	.then(res => {
+	// 	  console.log("NEWSTATE!!",this.state)
+	// 	 })
+	// 	.catch(err => {
+	// 	  console.log('Server Error', err)
+	// 	})
 		
- 	}
+ 	// }
         
 
       render(){
@@ -157,20 +157,21 @@ class TourCreate extends React.Component{
                     <input
                    onChange = {this.handleInputChange}
                    placeholder = 'duration'
+                   type ='number'
                    value = {this.state.max_duration}
-                   name='duration'
+                   name='max_duration'
                    />
                     <input
                    onChange = {this.handleInputChange}
                    placeholder = 'location'
-                   vale = {this.state.location}
+                   value = {this.state.location}
                    name='location'
                    />
                     <input
                    onChange = {this.handleInputChange}
                    placeholder = 'tour type'
-                   vale = {this.state.type}
-                   name='tourType'
+                   value = {this.state.type}
+                   name='type'
                    />
                     
                    <button type ='submit'>Add a Tour!</button>

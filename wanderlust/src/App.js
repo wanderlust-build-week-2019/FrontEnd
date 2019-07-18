@@ -23,7 +23,9 @@ function App() {
            <NavLink to ='/search'>Search Destinations</NavLink>
            <NavLink to ='/register'>Register</NavLink>
            <NavLink to ='/Tour-guide-register'>Register as a Tour Guide</NavLink>
-
+           {/* https://wanderlust-api.herokuapp.com/auth/guide/register
+    //  https://wanderlust-api.herokuapp.com/auth/user/register
+    //  https://wanderlust-api.herokuapp.com/auth/login/ */}
  
       </nav>
       {/* <Route exact path = '/' component={App}/> */}

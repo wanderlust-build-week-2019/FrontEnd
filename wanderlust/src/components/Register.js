@@ -12,7 +12,7 @@ class Register extends React.Component{
         };
     }
     
-    changeHandle =e =>({[e.target.name]: e.target.value})
+    changeHandle =e => this.setState({[e.target.name]: e.target.value})
 
     // regSubmit = e => {
     //     const firstName = this.state.firstName;
@@ -23,9 +23,11 @@ class Register extends React.Component{
 
     
 
-    addUser = user =>{  
+    addUser = e =>  {  
+        e.preventDefault();
+        console.log(this.state)
         axios 
-        .post('https://wanderlust-api.herokuapp.com/auth/user/register', user)
+        .post('https://wanderlust-api.herokuapp.com/auth/user/register', this.state)
         .then( res => {  localStorage.setItem('token',res.data.token)
     
         }
@@ -38,7 +40,7 @@ class Register extends React.Component{
     
         })
     
-         console.log(user) }
+         console.log('ADDUSER STATE', this.state) }
 
          addPerson = e => {
             e.preventDefault();
@@ -46,9 +48,9 @@ class Register extends React.Component{
     
              this.addUser(user)
             this.setState( {  
-             max_duration:'',
-            location:'',
-            type:'',
+             username:'',
+            password:'',
+            
            })
             console.log('STATE',this.state)
             console.log('NEW!!', user)
@@ -66,12 +68,12 @@ class Register extends React.Component{
             <form 
             className ='regForm'
             
-            type= 'submit'>
+            type= 'submit'  >
             <input
                type ='text'
-               name ='userName'
+               name ='username'
                placeholder = 'userName'
-               value={this.state.userName}
+               value={this.state.username}
                onChange={this.changeHandle}/> 
              
                <input
@@ -81,7 +83,7 @@ class Register extends React.Component{
                value={this.state.password}
                onChange={this.changeHandle}/> 
 
-               <button className ='regSubmit' onClick={this.addPerson}>SUBMIT</button>
+               <button type = 'submit' className ='regSubmit' onClick={this.addUser}>SUBMIT</button>
 
 
             </form>

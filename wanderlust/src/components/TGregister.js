@@ -11,21 +11,41 @@ class TGregister extends React.Component{
         };
     }
     
-     addGuide = user =>{  
-    axios
-    .post('https://wanderlust-api.herokuapp.com/auth/guide/register', user)
-    .then( res => {  localStorage.setItem('token',res.data.token)
-    console.log("HAY", user)
+    //  addGuide = user =>{  
+    // axios
+    // .post('https://wanderlust-api.herokuapp.com/auth/guide/register', user)
+    // .then( res => {  localStorage.setItem('token',res.data.token)
+    // console.log("HAY", user)
 
-    }
+    // }
 
 
-    )
-    .catch (err =>{
-        console.log(err)
+    // )
+    // .catch (err =>{
+    //     console.log(err)
     
 
-    })}
+    // })}
+
+    addUser = e =>  {  
+        e.preventDefault();
+        console.log(this.state)
+        axios 
+        .post('https://wanderlust-api.herokuapp.com/auth/guide/register', this.state)
+        .then( res => {  localStorage.setItem('token',res.data.token)
+    
+        }
+    
+    
+        )
+        .catch (err =>{
+            console.log(err)
+        
+    
+        })
+    
+         console.log('ADDUSER STATE', this.state) }
+
     changeHandle =e =>  this.setState({ [e.target.name]: e.target.value });
 
 
@@ -57,7 +77,7 @@ class TGregister extends React.Component{
                
                
 
-               <button className ='regSubmit' onClick ={this.addGuide(this.state)}>SUBMIT</button>
+               <button  type = 'submit' className ='regSubmit' onClick ={this.addUser}>SUBMIT</button>
 
 
             </form>
