@@ -11,15 +11,14 @@ export default class tour extends React.Component {
     this.homeRoute = this.homeRoute.bind(this);
   }
 
-  // componentDidMount() {
-  //   // var id = this.props.match.params.id;
-  //   // console.log(id);
-  //   this.fetchTour(id);
-  //   console.log(`The Tour id you are looking at is ${id}`);
-  // }
+  componentDidMount() {
+    var id = this.props.match.params.id;
+    this.fetchTour(id);
+    console.log(`The Tour id you are looking at is ${id}`);
+  }
 
   homeRoute() {
-    this.props.history.push('/searchbar');
+    this.props.history.push('/tours');
   }
   fetchTour = id => {
     axios
@@ -38,17 +37,18 @@ export default class tour extends React.Component {
     console.log(this.state.tour);
     if (!this.state.tour) {
       return <div className="loading">Loading Tour Information</div>;
-    }
-    const { id, type, location, max_duration } = this.state.tour;
-    return (
-      <div>
-        <h1>{tour.location}</h1>
-        <h2>{tour.type}</h2>
-        <h3>{tour.max_duration}</h3>
-        <div className="searchBarBtn" onClick={this.homeRoute}>
-          Back to Results
+    } else {
+      const { type, location, max_duration } = this.state.tour;
+      return (
+        <div>
+          <h1>{location}</h1>
+          <h2>{type}</h2>
+          <h3>{max_duration}</h3>
+          <div className="searchBarBtn" onClick={this.homeRoute}>
+            Back to Results
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }

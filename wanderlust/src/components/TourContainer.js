@@ -19,29 +19,21 @@ class TourContainer extends React.Component {
         console.log('Successful get');
         console.log(tours);
       })
-      .then(res => {
-        console.log('Successful then');
-      })
       .catch(err => {
         console.log('Server Error', err);
       });
   }
   render() {
-    // console.log(this.state.tours);
+    console.log(this.state.tours);
     return (
       <div>
-        {this.state.tours.length > 0 &&
-          this.state.tours.map((tour, index) => {
-            // console.log(tour);
-            return (
-              <div key={index} className="individualTour">
-                <Link to={`/tours/${tour.id}`}>
-                  {console.log(tour.id)}
-                  <Tour key={index} tour={tour} />
-                </Link>
-              </div>
-            );
-          })}
+        {this.state.tours.map((tour, index) => {
+          return (
+            <div key={index} className="individualTour">
+              <Link to={`/tours/${tour.id}`}>{tour.location}</Link>
+            </div>
+          );
+        })}
       </div>
     );
   }
