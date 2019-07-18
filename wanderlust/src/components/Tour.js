@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Route, Link, NavLink } from 'react-router-dom';
 
 export default class tour extends React.Component {
   constructor(props) {
@@ -10,11 +11,12 @@ export default class tour extends React.Component {
     this.homeRoute = this.homeRoute.bind(this);
   }
 
-  componentDidMount() {
-    var id = this.props.match.params.id;
-    this.fetchTour(id);
-    console.log(`The Tour id you are looking at is ${id}`);
-  }
+  // componentDidMount() {
+  //   // var id = this.props.match.params.id;
+  //   // console.log(id);
+  //   this.fetchTour(id);
+  //   console.log(`The Tour id you are looking at is ${id}`);
+  // }
 
   homeRoute() {
     this.props.history.push('/searchbar');
@@ -24,6 +26,7 @@ export default class tour extends React.Component {
       .get(`https://wanderlust-api.herokuapp.com/api/tours/${id}`)
       .then(res => {
         this.setState(() => ({ tour: res.data }));
+        console.log(res.data, 'this is coming from tour.js file');
       })
       .catch(err => {
         console.error(err);
@@ -32,15 +35,16 @@ export default class tour extends React.Component {
   };
 
   render() {
+    console.log(this.state.tour);
     if (!this.state.tour) {
       return <div className="loading">Loading Tour Information</div>;
     }
     const { id, type, location, max_duration } = this.state.tour;
     return (
       <div>
-        <h1>{this.props.location}</h1>
-        <h2>{this.props.type}</h2>
-        <h3>{this.props.max_duration}</h3>
+        <h1>{tour.location}</h1>
+        <h2>{tour.type}</h2>
+        <h3>{tour.max_duration}</h3>
         <div className="searchBarBtn" onClick={this.homeRoute}>
           Back to Results
         </div>
@@ -48,5 +52,3 @@ export default class tour extends React.Component {
     );
   }
 }
-
-<Route exact path="/tour/:id" />;

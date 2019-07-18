@@ -5,6 +5,7 @@ import Home from '../src/components/Home';
 import Creation from '../src/components/Creation';
 import AddTourPage from '../src/components/AddTourPage';
 import Tour from '../src/components/Tour';
+import TourContainer from '../src/components/TourContainer';
 import Login from '../src/components/Login';
 // import Authenticate from './components/Authenticate';
 import SearchBar from './components/SearchBar';
@@ -19,7 +20,8 @@ function App() {
         <Route exact path="/Creation" component={Creation} />
         <Route exact path="/AddTourPage" component={AddTourPage} />
         <Route exact path="/Login" component={Login} />
-        <Route exact path="/tour" component={Tour} />
+        <Route exact path="/tours/:id" component={Tour} />
+        <Route exact path="/tours" component={TourContainer} />
         <Route protected exact path="/SearchBar" component={SearchBar} />
       </Switch>
     </div>
