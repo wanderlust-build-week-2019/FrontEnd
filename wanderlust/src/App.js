@@ -5,7 +5,7 @@ import Home from '../src/components/Home';
 import Creation from '../src/components/Creation';
 import AddTourPage from '../src/components/AddTourPage';
 import Login from '../src/components/Login';
-import Authenticate from './components/Authenticate';
+// import Authenticate from './components/Authenticate';
 import SearchBar from './components/SearchBar';
 
 import { Route, Switch } from 'react-router-dom';
@@ -24,6 +24,6 @@ function App() {
   );
 }
 
-const ConditionalView = Authenticate(SearchBar)(Login);
+// const ConditionalView = Authenticate(SearchBar)(Login);
 
 export default App;
