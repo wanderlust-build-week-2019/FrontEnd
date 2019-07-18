@@ -36,8 +36,9 @@ class TourContainer extends React.Component {
             return (
               <div key={index} className="individualTour">
                 <Link to={`/tours/${tour.id}`}>
+                  <h1>{tour.location}</h1>
                   {console.log(tour.id)}
-                  <Tour key={index} tour={tour} />
+                  {/* <Tour key={index} tour={tour} /> */}
                 </Link>
               </div>
             );
