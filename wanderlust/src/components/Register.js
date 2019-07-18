@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import axiosAuth from '../reducers/axiosAuth'
+import axiosAuth from '../reducers/axiosAuth';
 
 
 class Register extends React.Component{
@@ -21,6 +21,8 @@ class Register extends React.Component{
     //     console.log(password)
     // }
 
+    
+
     addUser = user =>{  
         axios 
         .post('https://wanderlust-api.herokuapp.com/auth/user/register', user)
@@ -37,6 +39,23 @@ class Register extends React.Component{
         })
     
          console.log(user) }
+
+         addPerson = e => {
+            e.preventDefault();
+           const user = this.state
+    
+             this.addUser(user)
+            this.setState( {  
+             max_duration:'',
+            location:'',
+            type:'',
+           })
+            console.log('STATE',this.state)
+            console.log('NEW!!', user)
+               
+        }
+
+         
 
     render(){
 
@@ -62,7 +81,7 @@ class Register extends React.Component{
                value={this.state.password}
                onChange={this.changeHandle}/> 
 
-               <button className ='regSubmit' onClick={this.addUser(this.state)}>SUBMIT</button>
+               <button className ='regSubmit' onClick={this.addPerson}>SUBMIT</button>
 
 
             </form>
