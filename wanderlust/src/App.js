@@ -9,6 +9,7 @@ import TourContainer from '../src/components/TourContainer';
 import Login from '../src/components/Login';
 // import Authenticate from './components/Authenticate';
 import SearchBar from './components/SearchBar';
+import TGregister from '../src/components/TGregister';
 
 import { Route, Switch } from 'react-router-dom';
 
@@ -16,8 +17,9 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" component={Home} />
         <Route exact path="/Creation" component={Creation} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/create/Account/TourGuide" component={TGregister} />
         <Route exact path="/Add-Tour" component={AddTourPage} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/tours/:id" component={Tour} />
