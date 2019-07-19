@@ -32,8 +32,35 @@ class TourCreate extends React.Component{
             })
             .catch(err => console.error(err))
          }
+           
+         
         
+        //  deleteTour= e => {
+        //     const tour ={location:'',
+        //     type:'', max_duration: '',id: ''}
+        //   axios
+        //     .delete(`https://wanderlust-api.herokuapp.com/api/tours${tour.id}`)
+        //     .then(res => {
+        //       const tour = res.data;
+        //     //   this.setState({tour})
+        //       console.log('DELETE??', res.data)
+        //     })
+        //     .catch(err => console.error(err))
+        // }
+   
 
+        deleteTour = id => {
+            axiosAuth()
+             axios
+              .delete(`https://wanderlust-api.herokuapp.com/api/tours/${id}`)
+              .then(response => {
+                  
+                console.log(response)
+              })
+              .catch(err => {
+               console.log(`Sorry, but you are getting the error ${err} within the deleteTour function`)
+              });
+          };
 
     addTour = e => {
         e.preventDefault();
@@ -44,6 +71,7 @@ class TourCreate extends React.Component{
          max_duration:'',
         location:'',
         type:'',
+        id:''
        })
         console.log('STATE',this.state)
         console.log('NEW!!', tour)
@@ -52,6 +80,10 @@ class TourCreate extends React.Component{
     handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
+
+      handleDelete = e => {
+          this.setState({[e.target.name]: e.target.value})
+      }
 
 
   //     componentDidMount(){
@@ -148,7 +180,7 @@ class TourCreate extends React.Component{
             
             
             </div>    */}
-            <TourContainer/>
+            <TourContainer deleteTour ={this.deleteTour}/>
 
                       </div>
               <form onSubmit ={this.addTour}>
@@ -173,8 +205,15 @@ class TourCreate extends React.Component{
                    value = {this.state.type}
                    name='type'
                    />
-                    
+                   <input
+                   type = 'number'
+                   onChange = {this.handleDelete}
+                   value ={this.state.id}
+                   name = 'id'
+                   placeholder = 'id'/>
+                     
                    <button type ='submit'>Add a Tour!</button>
+                   <button onClick= {this.deleteTour}>Delete</button>
 
 
 

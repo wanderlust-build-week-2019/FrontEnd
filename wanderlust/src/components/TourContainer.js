@@ -1,6 +1,6 @@
 import React from 'react';
 import Tour from './Tour';
-
+import {deleteTour} from './TourCreate';
 import axios from 'axios';
   
 class TourContainer extends React.Component {
@@ -8,7 +8,19 @@ class TourContainer extends React.Component {
 		super(props);
 		this.state ={ tours: []};
 	}
-
+	
+	
+	// deleteTour= e => {
+             
+	// 	axios
+	// 	  .delete(`https://wanderlust-api.herokuapp.com/api/tours${e.id}`)
+	// 	  .then(res => {
+	// 		const tour = res.data;
+	// 	  //   this.setState({tour})
+	// 		console.log('DELETE??', res.data)
+	// 	  })
+	// 	  .catch(err => console.error(err))
+	//   }
 
 	componentDidMount(){
 		axios.get('https://wanderlust-api.herokuapp.com/api/tours')
@@ -40,6 +52,7 @@ class TourContainer extends React.Component {
 							<h1>{e.location}</h1>
 							<h1>{e.max_duration}</h1>
 							<h1>{e.type}</h1>
+							<button onClick ={()=>this.props.deleteTour(this.props.id)}>{e.id}</button>
 						</div>
 
 					)
