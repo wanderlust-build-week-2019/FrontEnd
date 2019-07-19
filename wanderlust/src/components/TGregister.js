@@ -65,7 +65,7 @@ class TGregister extends React.Component{
             <input
                type ='text'
                name ='username'
-               placeholder = 'First-Name'
+               placeholder = 'username'
                value={this.state.username}
                onChange={this.changeHandle}/> 
                 <input

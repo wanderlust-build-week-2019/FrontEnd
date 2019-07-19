@@ -72,7 +72,7 @@ class Register extends React.Component{
             <input
                type ='text'
                name ='username'
-               placeholder = 'userName'
+               placeholder = 'username'
                value={this.state.username}
                onChange={this.changeHandle}/> 
              
