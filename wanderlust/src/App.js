@@ -13,6 +13,9 @@ import {NavLink} from 'react-router-dom'
 import TGregister from './components/TGregister'
 import TourCreate from './components/TourCreate'
 import TourContainer from './components/TourContainer'
+import UpdateTour from './components/updateTour'
+
+
 function App() {
   return (
     <div className="App">
@@ -34,6 +37,8 @@ function App() {
       <Route path = '/Tour-guide-register' component = {TGregister}/>
       <Route path = '/create-tour' component = {TourCreate} />
       <Route path = '/tour' component = {TourContainer} />
+      <Route path = '/update-tour' component = {UpdateTour} />
+
 
 
 
@@ -53,6 +58,8 @@ function App() {
            <NavLink to ='/Tour-guide-register'>Register as a Tour Guide</NavLink>
            <NavLink to ='/create-tour'>Create A TOUR!!</NavLink>
            <NavLink to ='/tour'>See Tours</NavLink>
+           <NavLink to ='/update-tour'>Update</NavLink>
+
 
 
 

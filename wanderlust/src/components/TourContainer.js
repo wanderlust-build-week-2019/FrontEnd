@@ -1,7 +1,11 @@
 import React from 'react';
 import Tour from './Tour';
-import {deleteTour} from './TourCreate';
+import {deleteTour, updateTour} from './TourCreate';
 import axios from 'axios';
+import {NavLink} from 'react-router-dom'
+import {Route} from 'react-router-dom'
+
+
   
 class TourContainer extends React.Component {
 	constructor(props){
@@ -9,7 +13,7 @@ class TourContainer extends React.Component {
 		this.state ={ tours: []};
 	}
 	
-	
+ 
 	// deleteTour= e => {
              
 	// 	axios
@@ -38,7 +42,9 @@ class TourContainer extends React.Component {
 		  console.log('Server Error', err)
 		})
 		
- 	}
+	 }
+	 
+ 
 	 render(){
 		 return(
 
@@ -52,8 +58,10 @@ class TourContainer extends React.Component {
 							<h1>{e.location}</h1>
 							<h1>{e.max_duration}</h1>
 							<h1>{e.type}</h1>
-							<button onClick ={()=>this.props.deleteTour(this.props.id)}>{e.id}</button>
-						</div>
+							<button onClick ={()=>this.props.deleteTour(e.id) }>{e.id}</button>
+							<NavLink to ='/update-tour'>Update {e.id}</NavLink>
+
+ 						</div>
 
 					)
 				})}

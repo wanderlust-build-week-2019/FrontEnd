@@ -25,7 +25,7 @@ class TourCreate extends React.Component{
         .post('https://wanderlust-api.herokuapp.com/api/tours', e)
             .then(res => {
               const tour = res.data
-              this.setState({ ...this.state.tours , tour })
+            //   this.setState({ ...this.state.tours , tour })
               console.log("!!!!",tour)
               console.log(' NEW:',tour)
 
@@ -34,24 +34,29 @@ class TourCreate extends React.Component{
          }
            
          
+        updateTour = e => {
+            axiosAuth()
+             
+             .put(`https://wanderlust-api.herokuapp.com/api/tours/${e.id}`, e)
+             
+             
+            .then(res => {
+            let tour = {
+                location: '',
+                max_duration: '',
+                type:''
+            }
+ 
+            })
+            .catch (err => console.log(err))
+            
+        }
         
-        //  deleteTour= e => {
-        //     const tour ={location:'',
-        //     type:'', max_duration: '',id: ''}
-        //   axios
-        //     .delete(`https://wanderlust-api.herokuapp.com/api/tours${tour.id}`)
-        //     .then(res => {
-        //       const tour = res.data;
-        //     //   this.setState({tour})
-        //       console.log('DELETE??', res.data)
-        //     })
-        //     .catch(err => console.error(err))
-        // }
    
 
         deleteTour = id => {
             axiosAuth()
-             axios
+           
               .delete(`https://wanderlust-api.herokuapp.com/api/tours/${id}`)
               .then(response => {
                   
@@ -180,7 +185,7 @@ class TourCreate extends React.Component{
             
             
             </div>    */}
-            <TourContainer deleteTour ={this.deleteTour}/>
+            <TourContainer deleteTour ={this.deleteTour} updateTour = {this.updateTour}/>
 
                       </div>
               <form onSubmit ={this.addTour}>
