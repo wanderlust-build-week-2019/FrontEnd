@@ -178,7 +178,7 @@ class TourCreate extends React.Component{
                           
                                      
 </div>
-{/* <div>
+<div>
         <ul>
     {this.state.tours.map (e => {
         return (
@@ -187,6 +187,8 @@ class TourCreate extends React.Component{
                 <h2> {e.location}</h2>
                 <h2>{e.type}</h2>
                 <h2>{e.max_duration}</h2>
+                <button onClick ={()=>this.deleteTour(e.id) }>x</button>
+
             </div>
 
         )
@@ -195,8 +197,7 @@ class TourCreate extends React.Component{
 </ul>
             
             
-            </div>    */}
-            <TourContainer tours={this.state.tours} deleteTour ={this.deleteTour} updateTour = {this.updateTour}/>
+            </div>   
 
                       </div>
               <form onSubmit ={this.addTour}>

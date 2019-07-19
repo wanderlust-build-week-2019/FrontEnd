@@ -47,18 +47,12 @@ class TourContainer extends React.Component {
  
 	 render(){
 
-		let tours;
-		if (this.props.tours) {
-			tours = this.props.tours
-		} else{
-			tours = this.state.tours
-		}
 		 return(
 
 		<div> 
 
 			<ul>
-                {tours.map (e => {
+                {this.state.tours.map (e => {
 					return (
 						<div>
 
