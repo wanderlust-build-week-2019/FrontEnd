@@ -8,7 +8,10 @@ class Login extends React.Component {
         super(props);
         this.state =   { 
             username: '',
-            password: ''}
+            password: '',
+            loginError: null
+          
+          }
      
     }
  
@@ -24,7 +27,14 @@ class Login extends React.Component {
   LoginSubmit = user =>{  
     axios
     .post('https://wanderlust-api.herokuapp.com/auth/login', this.state)
-    .then( res => {  localStorage.setItem('token',res.data.token)
+    .then( res => {  
+      localStorage.setItem('token',res.data.token)
+
+      this.setState({
+        loginError: null
+      });
+
+      this.props.history.push("/tour")
 
     }
 
@@ -32,7 +42,10 @@ class Login extends React.Component {
     )
     .catch (err =>{
         console.log(err)
-    
+
+        this.setState({
+          loginError: "failed login"
+        });
 
     })
 
@@ -52,6 +65,7 @@ class Login extends React.Component {
       <div>
         <h3>Welcome to React WanderLust</h3>
         <div  >Please Login</div>
+        {this.state.loginError && <p>Error on login, try again</p>}
         <div className ='Login'>
         <input
             type="text"
