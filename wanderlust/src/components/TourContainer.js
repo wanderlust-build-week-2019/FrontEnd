@@ -59,6 +59,8 @@ class TourContainer extends React.Component {
 							<h1>{e.location}</h1>
 							<h1>{e.max_duration}</h1>
 							<h1>{e.type}</h1>
+							{/* delete has never worked from /tours route 
+							because it's not passed a deleteTour prop in App.js */}
 							<button onClick ={()=>this.props.deleteTour(e.id) }>x</button>
 							<NavLink to ='/update-tour'>Update {e.id}</NavLink>
 
