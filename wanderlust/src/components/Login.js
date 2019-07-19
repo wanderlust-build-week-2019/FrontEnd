@@ -24,7 +24,9 @@ class Login extends React.Component {
 
   };
    
-  LoginSubmit = user =>{  
+  LoginSubmit = e =>{  
+    e.preventDefault()
+    
     axios
     .post('https://wanderlust-api.herokuapp.com/auth/login', this.state)
     .then( res => {  
@@ -49,7 +51,7 @@ class Login extends React.Component {
 
     })
 
-     console.log(user) }
+     }
 
 
     //  https://wanderlust-api.herokuapp.com/auth/guide/register
@@ -67,25 +69,27 @@ class Login extends React.Component {
         <div  >Please Login</div>
         {this.state.loginError && <p>Error on login, try again</p>}
         <div className ='Login'>
-        <input
-            type="text"
-            placeholder="username"
-            name="username"
-            value={this.state.username}
-            onChange={this.changeHandle}
-          />
-        
+        <form onSubmit={this.LoginSubmit}>
           <input
-            type="password"
-            placeholder="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.changeHandle}
-          />
-          <br />
-          <button color="success" size="large" onClick={this.LoginSubmit}>
-            Log In
-          </button>
+              type="text"
+              placeholder="username"
+              name="username"
+              value={this.state.username}
+              onChange={this.changeHandle}
+            />
+          
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.changeHandle}
+            />
+            <br />
+            <button color="success" size="large">
+              Log In
+            </button>
+        </form>
         </div>
            
       </div>
