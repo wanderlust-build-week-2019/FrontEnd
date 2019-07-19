@@ -66,6 +66,18 @@ class TourCreate extends React.Component{
               .then(response => {
                   
                 console.log(response)
+
+                return axios.get('https://wanderlust-api.herokuapp.com/api/tours')
+                .then(res=> {
+                  let tours = res.data
+                  this.setState({tours: res.data})
+            
+                  console.log("TOURS:", tours)
+            
+                })
+                .catch(err => {
+                  console.log('Server Error', err)
+                })
               })
               .catch(err => {
                console.log(`Sorry, but you are getting the error ${err} within the deleteTour function`)
