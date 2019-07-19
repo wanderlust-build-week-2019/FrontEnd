@@ -7,7 +7,7 @@ import AddTourPage from '../src/components/AddTourPage';
 import Tour from '../src/components/Tour';
 import TourContainer from '../src/components/TourContainer';
 import Login from '../src/components/Login';
-// import Authenticate from './components/Authenticate';
+import Authenticate from './components/Authenticate';
 import SearchBar from './components/SearchBar';
 import TGregister from '../src/components/TGregister';
 import Register from '../src/components/Register';
