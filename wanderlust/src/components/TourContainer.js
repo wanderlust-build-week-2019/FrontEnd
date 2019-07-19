@@ -8,10 +8,10 @@ import {Route} from 'react-router-dom'
 
   
 class TourContainer extends React.Component {
-	constructor(props){
-		super(props);
-		this.state ={ tours: []};
-	}
+	// constructor(props){
+	// 	super(props);
+	// 	this.state ={ tours: []};
+	// }
 	
  
 	// deleteTour= e => {
@@ -26,23 +26,23 @@ class TourContainer extends React.Component {
 	// 	  .catch(err => console.error(err))
 	//   }
 
-	componentDidMount(){
-		axios.get('https://wanderlust-api.herokuapp.com/api/tours')
-		.then(res=> {
-		  let tours = res.data
-		  this.setState(()=> ({tours: res.data}))
+	// componentDidMount(){
+	// 	axios.get('https://wanderlust-api.herokuapp.com/api/tours')
+	// 	.then(res=> {
+	// 	  let tours = res.data
+	// 	  this.setState(()=> ({tours: res.data}))
 	
-		  console.log("TOURS:", tours)
+	// 	  console.log("TOURS:", tours)
 	
-		})
-		.then(res => {
-		  console.log("NEWSTATE!!",this.state)
-		 })
-		.catch(err => {
-		  console.log('Server Error', err)
-		})
+	// 	})
+	// 	.then(res => {
+	// 	  console.log("NEWSTATE!!",this.state)
+	// 	 })
+	// 	.catch(err => {
+	// 	  console.log('Server Error', err)
+	// 	})
 		
-	 }
+	//  }
 	 
  
 	 render(){
@@ -51,7 +51,7 @@ class TourContainer extends React.Component {
 		<div> 
 
 			<ul>
-                {this.state.tours.map (e => {
+                {this.props.tours.map (e => {
 					return (
 						<div>
 
