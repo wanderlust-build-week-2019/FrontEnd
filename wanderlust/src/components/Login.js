@@ -36,7 +36,7 @@ class Login extends React.Component {
         loginError: null
       });
 
-      this.props.history.push("/tour")
+      this.props.history.push("/search")
 
     }
 
