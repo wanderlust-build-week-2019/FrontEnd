@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Col,
-  Row,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText
-} from 'reactstrap';
+import axiosAuth from '../reducers/axiosAuth';
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 // Refer to this page to develop the upload portion
 // https://codeburst.io/react-image-upload-with-kittens-cc96430eaece
@@ -19,9 +11,45 @@ class AddTourPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      file: null
+      max_duration: '',
+      location: '',
+      type: ''
     };
   }
+
+  addNew = e => {
+    axiosAuth()
+      .post('https://wanderlust-api.herokuapp.com/api/tours', e)
+      .then(res => {
+        const tour = res.data;
+        console.log(
+          'This is the new tour object that was passed through',
+          tour
+        );
+      })
+      .catch(err => console.error(err));
+  };
+
+  addTour = e => {
+    e.preventDefault();
+    const tour = this.state;
+
+    this.addNew(tour);
+    this.setState({
+      max_duration: '',
+      location: '',
+      type: '',
+      id: ''
+    });
+  };
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleDelete = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   render() {
     return (
@@ -37,110 +65,68 @@ class AddTourPage extends Component {
         </header>
         <div className="mainSection">
           <section className="mainContent">
-            {/* <section className="uploadSection">
-              <div className="clickToUpload photo">
-                 This will be the section that contains the selected or clicked on photo 
-              </div>
-              <div className="uploadedPhotos">
-                <div className="uploadedPhoto">
-                  * This is where the uploaded your photos will be available to be clicked on to be seen in a larger size
-                  
-                  Stretch goal: Make it so the photos auto rotate
-                </div>
-              </div>
-            </section> */}
             <section className="tripDetails">
-              <div className="left">
-                <div className="genText">Trip Details</div>
-                <div className="enterDetails">
-                  <Form>
-                    {/* <FormGroup row>
-                      <Label for="tourName" sm={4}>
-                        Tour Name
-                      </Label>
-                      <Col sm={8}>
-                        <Input
-                          type="text"
-                          name="tourName"
-                          id="tourName"
-                          placeholder="Enter the name of the tour."
-                        />
-                      </Col>
-                    </FormGroup> */}
-                    <FormGroup row>
-                      <Label for="duration" sm={4}>
-                        Duration
-                      </Label>
-                      <Col sm={8}>
-                        <Input
-                          type="text"
-                          name="duration"
-                          id="duration"
-                          placeholder="How long is the tour?"
-                        />
-                      </Col>
-                    </FormGroup>
-                    {/* <FormGroup row>
-                      <Label for="tourCost" sm={4}>
-                        Tour Price
-                      </Label>
-                      <Col sm={8}>
-                        <Input
-                          type="number"
-                          name="tourCost"
-                          id="tourCost"
-                          placeholder="Enter the price of the tour."
-                        />
-                      </Col>
-                    </FormGroup> */}
-                    <FormGroup row>
-                      <Label for="cityName" sm={4}>
-                        Location Of Tour
-                      </Label>
-                      <Col sm={8}>
-                        <Input
-                          type="text"
-                          name="cityName"
-                          id="cityName"
-                          placeholder="What city(ies) will the tour be in?"
-                        />
-                      </Col>
-                    </FormGroup>
-                    <FormGroup row>
-                      <Label for="tourType" sm={4}>
-                        Tour Type
-                      </Label>
-                      <Col sm={8}>
-                        <Input
-                          type="select"
-                          name="tourType"
-                          id="tourType"
-                          defaultValue="Please make a selection..."
-                        >
-                          <option value="Professional">Professional</option>
-                          <option value="Private">Private</option>
-                        </Input>
-                      </Col>
-                    </FormGroup>
-                    {/* <FormGroup row>
-                      <Label for="tourDescription" sm={4}>
-                        Tour Description
-                      </Label>
-                      <Col sm={8}>
-                        <Input
-                          type="textarea"
-                          name="tourDescription"
-                          id="tourDescription"
-                          placeholder="Please enter a brief description of the tour"
-                        />
-                      </Col>
-                    </FormGroup> */}
-                    <Button color="primary" size="lg" block>
-                      Book this Tour!
-                    </Button>
-                  </Form>
-                </div>
-              </div>
+              <Form className="addTourForm" onSubmit={this.addTour}>
+                <FormGroup row>
+                  <Label for="location" sm={4}>
+                    Location:
+                  </Label>
+                  <Col sm={8}>
+                    <input
+                      onChange={this.handleInputChange}
+                      placeholder="location"
+                      type="text"
+                      value={this.state.location}
+                      name="location"
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label for="maxDuration" sm={4}>
+                    Max Duration:
+                  </Label>
+                  <Col sm={8}>
+                    <input
+                      type="text"
+                      onChange={this.handleInputChange}
+                      placeholder="Max Duration"
+                      value={this.state.max_duration}
+                      name="max_duration"
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label for="tourType" sm={4}>
+                    Tour Type:
+                  </Label>
+                  <Col sm={8}>
+                    <input
+                      type="text"
+                      onChange={this.handleInputChange}
+                      placeholder="Max Duration"
+                      value={this.state.type}
+                      name="type"
+                    />
+                  </Col>
+                </FormGroup>
+                {/* <FormGroup row>
+                  <Label for="location" sm={4}>
+                    Location:
+                  </Label>
+                  <Col sm={8}>
+                    <input
+                      disabled
+                      type="number"
+                      onChange={this.handleDelete}
+                      value={this.state.id}
+                      name="id"
+                      placeholder="id"
+                    />
+                  </Col>
+                </FormGroup> */}
+                <button type="submit">Add This Tour!</button>
+                <button type="submit">Clear Fields</button>
+              </Form>
             </section>
           </section>
         </div>

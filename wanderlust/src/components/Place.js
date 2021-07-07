@@ -1,23 +1,20 @@
- // import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+// import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-
-
-import React from 'react'
-import PostContainer from './PostsContainer'
-import dummyData from '../dummyData'
-import '../App.css'
+import React from 'react';
+import PostContainer from './TourContainer';
+import dummyData from '../dummyData';
+import '../App.css';
 
 const Post = props => {
-    return(
-        <div className ='post'>
-        <img src ={props.thumbnailUrl} alt ='PIC'/> 
-        <h1>{props.place}</h1>
-        <h1>{props.country}</h1>
-        <h2>${props.price}</h2>
-
-
-        </div>
-    )
-}
+  console.log(props);
+  return (
+    <div className="post">
+      {/* <img src ={props.img} alt ='PIC'/>  */}
+      <h1>{props.location}</h1>
+      <h1>{props.type}</h1>
+      <h2> duration: {props.max_duration} days</h2>
+    </div>
+  );
+};
 
 export default Post;

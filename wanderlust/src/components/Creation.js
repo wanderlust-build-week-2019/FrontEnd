@@ -2,15 +2,7 @@ import React, { Component } from 'react';
 
 import { Link, NavLink } from 'react-router-dom';
 
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText
-} from 'reactstrap';
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class Creation extends Component {
   constructor() {
@@ -52,19 +44,6 @@ class Creation extends Component {
                   <h2 className="heading">Tour Guide</h2>
                 </div>
                 <Form>
-                  {/* <FormGroup row>
-                    <Label for="name" sm={4}>
-                      Name
-                    </Label>
-                    <Col sm={8}>
-                      <Input
-                        type="text"
-                        name="name"
-                        id="name"
-                        placeholder="Enter your name"
-                      />
-                    </Col>
-                  </FormGroup> */}
                   <FormGroup row>
                     <Label for="email" sm={4}>
                       Email
@@ -91,33 +70,7 @@ class Creation extends Component {
                       />
                     </Col>
                   </FormGroup>
-                  {/* <FormGroup row>
-                    <Label for="number" sm={4}>
-                      Number
-                    </Label>
-                    <Col sm={8}>
-                      <Input
-                        type="text"
-                        name="number"
-                        id="number"
-                        placeholder="540-867-5309"
-                      />
-                    </Col>
-                  </FormGroup>
 
-                  <FormGroup row>
-                    <Label for="city" sm={4}>
-                      Enter your city
-                    </Label>
-                    <Col sm={8}>
-                      <Input
-                        type="text"
-                        name="city"
-                        id="city"
-                        placeholder="Enter your city"
-                      />
-                    </Col>
-                  </FormGroup> */}
                   <Button>Submit</Button>
                 </Form>
               </div>
@@ -128,19 +81,6 @@ class Creation extends Component {
                   <h2 className="heading">Experiencer</h2>
                 </div>
                 <Form>
-                  {/* <FormGroup row>
-                    <Label for="name" sm={4}>
-                      Name
-                    </Label>
-                    <Col sm={8}>
-                      <Input
-                        type="text"
-                        name="name"
-                        id="name"
-                        placeholder="Enter your name"
-                      />
-                    </Col>
-                  </FormGroup> */}
                   <FormGroup row>
                     <Label for="email" sm={4}>
                       Email
@@ -167,19 +107,7 @@ class Creation extends Component {
                       />
                     </Col>
                   </FormGroup>
-                  {/* <FormGroup row>
-                    <Label for="number" sm={4}>
-                      Number
-                    </Label>
-                    <Col sm={8}>
-                      <Input
-                        type="text"
-                        name="number"
-                        id="number"
-                        placeholder="540-867-5309"
-                      />
-                    </Col>
-                  </FormGroup> */}
+
                   <Button>Submit</Button>
                 </Form>
               </div>
